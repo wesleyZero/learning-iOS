@@ -17,10 +17,11 @@ struct ContentView: View {
 
     var body: some View {
         ZStack {
-            //            LinearGradient(colors: [.red, .blue], startPoint: .top, endPoint: .bottom)
-            RadialGradient(stops: [.init(color: Color(red: 0.1, green: 0.2, blue: 0.45), location: 0.5)
-                                   ,.init(color: Color(red: 0.76, green: 0.15, blue: 0.25), location: 0.1)
-                                  ], center: .top, startRadius: 5, endRadius: 700)
+//                        LinearGradient(colors: [.red, .blue], startPoint: .top, endPoint: .bottom)
+            RadialGradient(stops: [.init(color: Color(red: 0.1, green: 0.2, blue: 0.45), location: 0.3)
+                                   ,.init(color: Color(red: 0.76, green: 0.15, blue: 0.25), location: 0.4)
+                                  ], center: .top, startRadius:0, endRadius: 700)
+            
             VStack(){
                 Spacer()
                 Text("Guess the Flag")
@@ -68,7 +69,16 @@ struct ContentView: View {
                 Text("Your score is \(score)")
             }
         }
-        
+//        RadialGradient(
+//            stops: [
+//                .init(color: .blue, location: 0.5),  // At startRadius
+//                .init(color: .green, location: 0.6),   // Halfway through
+//                    .init(color: .red, location: 1) // At endRadius
+//            ],
+//            center: .center,
+//            startRadius: 50,
+//            endRadius: 200
+//        )
         .ignoresSafeArea()
     }
     
