@@ -30,32 +30,50 @@ import SwiftUI
 //}
 //
 
+struct CapsuleText: View {
+    var text: String
+    
+    var body: some View{
+        Text(text)
+            .font(.headline)
+            .padding()
+            .foregroundStyle(.white)
+            .background(LinearGradient(colors: [.cyan, .purple], startPoint: .leading, endPoint: .trailing))
+            .clipShape(.capsule)
+            .shadow(radius: 5)
+    }
+}
+
+struct MyModifier: ViewModifier{
+    func body(content: Content) ->some View {
+        content
+            .font(.largeTitle)
+            .background(.blue)
+            .padding()
+            .background(.blue)
+            .clipShape(.rect(cornerRadius: 2))
+    }
+}
+
+extension View {
+    func titleStyle() -> some View {
+        modifier(MyModifier())
+    }
+} // wow this is really cool 
 
 
 struct ContentView: View {
-    var motto1: some View {
-        Text("Harry")
-    }
-    
-    let motto2 = Text("Poop in my mouth")
-    
-    var spells: some View {
-        Group {
-            Text("Lumos")
-            Text("Obliviate")
+    var body: some View {
+        VStack(spacing: 10) {
+            CapsuleText(text: "first button")
+                .opacity(0.5)
+            CapsuleText(text: "second Button")
+                .modifier(MyModifier())
+            CapsuleText(text: "third Button")
+                .titleStyle()
+                
         }
     }
-   
-    @ViewBuilder var spells2: some View {
-        Text("Lumos")
-        Text("Obliviate")
-    }
-    
-    
-    var body: some View {
-        spells2
-    }
-    
 
 }
 
