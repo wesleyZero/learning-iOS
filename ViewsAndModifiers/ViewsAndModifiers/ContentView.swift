@@ -33,16 +33,30 @@ import SwiftUI
 
 
 struct ContentView: View {
-    @State private var useRedText = false
+    var motto1: some View {
+        Text("Harry")
+    }
+    
+    let motto2 = Text("Poop in my mouth")
+    
+    var spells: some View {
+        Group {
+            Text("Lumos")
+            Text("Obliviate")
+        }
+    }
+   
+    @ViewBuilder var spells2: some View {
+        Text("Lumos")
+        Text("Obliviate")
+    }
+    
     
     var body: some View {
-        Button("Use red") {
-            useRedText.toggle()
-        }
-        .frame(maxWidth: 200, maxHeight: 200)
-        .background(.black)
-        .foregroundStyle(useRedText ? .red : .blue)
+        spells2
     }
+    
+
 }
 
 
