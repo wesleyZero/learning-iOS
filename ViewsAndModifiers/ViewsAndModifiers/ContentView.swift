@@ -105,11 +105,13 @@ struct GridStack<Content: View> : View {
 
 
 struct ContentView: View {
+    private let rows = 9
+    private let columns = 6
+    
     var body: some View {
-        GridStack(rows: 3, columns: 5) { row, col in
+        GridStack(rows: rows, columns: columns) { row, col in
             HStack {
-                Image(systemName: "\(row * 4 + col).circle")
-                Text("R\(row) C\(col)")
+                Image(systemName: "\(row * columns + col).circle")
             }
             .font(.caption)
         }
