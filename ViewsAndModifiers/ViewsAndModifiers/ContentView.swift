@@ -115,6 +115,7 @@ struct ContentView: View {
             }
             .font(.caption)
         }
+        .background(.blue)
     }
 }
 
